@@ -109,13 +109,13 @@ abstract class ProviderBase
    * The default setting for the
    * limit of items per page of listed queries.
    */
-  protected $default_limit = 100;
+  protected $default_limit = 500;
 
 
   /**
    * The limit of items per page of listed queries.
    */
-  public $limit = 100;
+  public $limit = 500;
 
 
   /**

@@ -66,6 +66,7 @@ use Wetcat\Fortie\Providers\Units\Provider as UnitsProvider;
 use Wetcat\Fortie\Providers\VoucherFileConnections\Provider as VoucherFileConnectionsProvider;
 use Wetcat\Fortie\Providers\VoucherSeries\Provider as VoucherSeriesProvider;
 use Wetcat\Fortie\Providers\Vouchers\Provider as VouchersProvider;
+use Wetcat\Fortie\Providers\WarehouseItemsummary\Provider as WarehouseItemsummaryProvider;
 use Wetcat\Fortie\Providers\WayOfDeliveries\Provider as WayOfDeliveriesProvider;
 
 /**
@@ -365,6 +366,12 @@ class Fortie
 
 
   /**
+   * Warehouse Itemsummary
+   */
+  protected $warehouseItemsummaryProvider;
+
+
+  /**
    * Way of Deliveries
    */
   protected $wayOfDeliveriesProvider;
@@ -441,6 +448,7 @@ class Fortie
     $this->voucherFileConnectionsProvider = new VoucherFileConnectionsProvider($client);
     $this->voucherSeriesProvider = new VoucherSeriesProvider($client);
     $this->vouchersProvider = new VouchersProvider($client);
+    $this->warehouseItemsummaryProvider = new WarehouseItemsummaryProvider($client);
     $this->wayOfDeliveriesProvider = new WayOfDeliveriesProvider($client);
   }
 
@@ -880,6 +888,15 @@ class Fortie
   public function vouchers ()
   {
     return $this->vouchersProvider;
+  }
+
+
+  /**
+   * Warehouse Itemsummary
+   */
+  public function warehouseItemsummary ()
+  {
+    return $this->warehouseItemsummaryProvider;
   }
 
 

@@ -66,7 +66,36 @@ class Provider extends ProviderBase {
    *
    * @return array
    */
-  public function priceList ($priceList = null, $articleNumber = null)
+  public function priceList ($priceList = null)
+  {
+    if (is_null($priceList)) {
+      throw new MissingRequiredAttributeException(['priceList']);
+    }
+
+    $req = new FortieRequest();
+    $req->method('GET');
+    $req->path($this->basePath)->path('sublist')->path($priceList);
+
+    $req->param('page', $this->page);
+    // $req->param('offset', $this->offset);
+    $req->param('limit', $this->limit);
+
+    if (! is_null($this->timespan)) {
+        $lastModified = date('Y-m-d H:i', strtotime($this->timespan));
+        $req->param('lastmodified', $lastModified);
+    }
+
+    return $this->send($req->build());
+  }
+
+
+  /**
+   * Retrives a price for a specified article.
+   *
+   * @param $id
+   * @return array
+   */
+  public function article ($priceList = null, $articleNumber = null)
   {
     if (is_null($priceList) || is_null($articleNumber)) {
       throw new MissingRequiredAttributeException(['priceList', 'articleNumber']);
@@ -86,7 +115,7 @@ class Provider extends ProviderBase {
    * @param $id
    * @return array
    */
-  public function article ($priceList = null, $articleNumber = null, $fromQuantity = null)
+  public function fromQuantity ($priceList = null, $articleNumber = null, $fromQuantity = null)
   {
     if (is_null($priceList) || is_null($articleNumber) || is_null($fromQuantity)) {
       throw new MissingRequiredAttributeException(['priceList', 'articleNumber', 'fromQuantity']);

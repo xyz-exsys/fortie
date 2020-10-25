@@ -34,6 +34,10 @@ class FortieRequest
    */
   private $method = null;
 
+  /**
+   * The version path for the request.
+   */
+  public $versionPath = 3;
 
   /**
    * The paths in the URL, including the basepath.
@@ -251,7 +255,7 @@ class FortieRequest
   public function build ()
   {
     // Start building the URL
-    $this->URL = 'https://api.fortnox.se/3/';
+    $this->URL = 'https://api.fortnox.se/' . $this->versionPath . '/';
 
     // Add the extra paths, if there are any
     if (!is_null($this->paths)) {
