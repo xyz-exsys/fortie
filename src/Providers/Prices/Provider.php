@@ -81,8 +81,13 @@ class Provider extends ProviderBase {
     $req->param('limit', $this->limit);
 
     if (! is_null($this->timespan)) {
-        $lastModified = date('Y-m-d H:i', strtotime($this->timespan));
-        $req->param('lastmodified', $lastModified);
+      $lastModified = date('Y-m-d H:i', strtotime($this->timespan));
+      $req->param('lastmodified', $lastModified);
+    }
+
+    if (! is_null($this->timestamp)) {
+      $lastModified = date('Y-m-d H:i', $this->timestamp);
+      $req->param('lastmodified', $lastModified);
     }
 
     return $this->send($req->build());
