@@ -396,7 +396,7 @@ class Fortie
         'Content-Type'  => $content_type,
         'Accept'        => $accepts
       ],
-      'timeout'   => 3.0,
+      'timeout'   => 15.0,
     ], $config));
 
     // Set up providers
