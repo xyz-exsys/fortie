@@ -131,6 +131,15 @@ abstract class ProviderBase
 
 
   /**
+   * The time or time difference for retrieving the records since.
+   * (not available for FinancialYears or Settings)
+   *
+   *    unix time stamp
+   */
+  public $timestamp = null;
+
+
+  /**
    * The possible values for filtering.
    */
   protected $available_filters = [];
@@ -385,6 +394,18 @@ abstract class ProviderBase
   public function timespan($timespan)
   {
     $this->timespan = $timespan;
+
+    return $this;
+  }
+
+
+  /**
+   * Sets the time limit for the last modification time
+   * of the items to be listed.
+   */
+  public function timestamp($timestamp)
+  {
+    $this->timestamp = $timestamp;
 
     return $this;
   }

@@ -49,6 +49,11 @@ trait FetchTrait
             $req->param('lastmodified', $lastModified);
         }
 
+        if (! is_null($this->timestamp)) {
+            $lastModified = date('Y-m-d H:i', $this->timestamp);
+            $req->param('lastmodified', $lastModified);
+        }
+
         if (! is_null($this->filter)) {
             $req->param('filter', $this->filter);
         }
