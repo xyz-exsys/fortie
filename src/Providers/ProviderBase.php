@@ -442,7 +442,7 @@ abstract class ProviderBase
   public function search_filter($filter, $value)
   {
     if (in_array($filter, $this->available_search_filters)) {
-      $this->search_filters[] = [$filter => $value];
+      $this->search_filters[$filter] = $value;
     }
 
     return $this;
