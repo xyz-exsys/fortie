@@ -207,6 +207,16 @@ class Provider extends ProviderBase {
 
 
   /**
+   * The possible values for filtering the customers.
+   *
+   * @var array
+   */
+  protected $available_search_filters = [
+    'email'
+  ];
+
+
+  /**
    * Override the REST path
    */
   protected $basePath = 'customers';

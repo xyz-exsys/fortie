@@ -146,9 +146,21 @@ abstract class ProviderBase
 
 
   /**
+   * The possible values for filtering.
+   */
+  protected $available_search_filters = [];
+
+
+  /**
    * The filtering parameter for retrieving query.
    */
   public $filter = null;
+
+
+  /**
+   * Search Filtering parameter for retrieving query.
+   */
+  public $search_filters = [];
 
 
   /**
@@ -418,6 +430,19 @@ abstract class ProviderBase
   {
     if (in_array($filter, $this->available_filters)) {
       $this->filter = $filter;
+    }
+
+    return $this;
+  }
+
+
+  /**
+   * Set a search filtering parameter for the query request.
+   */
+  public function search_filter($filter, $value)
+  {
+    if (in_array($filter, $this->available_search_filters)) {
+      $this->search_filters[] = [$filter => $value];
     }
 
     return $this;

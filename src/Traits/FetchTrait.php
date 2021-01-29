@@ -58,6 +58,13 @@ trait FetchTrait
             $req->param('filter', $this->filter);
         }
 
+        if (count($this->search_filters)) {
+            foreach ($this->search_filters as $filter => $value)
+            {
+                $req->param($filter, $value);
+            }
+        }
+
         if (! is_null($this->sort_order)) {
             $req->param('sortorder', $this->sort_order);
             $req->param('sortby', $this->sort_by);
