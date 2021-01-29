@@ -76,6 +76,13 @@ class Provider extends ProviderBase {
     'Weight',
     'Width',
     'Expired',
+    // Warehouse Resourse specific fields
+    'StockAccount',
+    'StockChangeAccount',
+    'CostCalculationMethod',
+    'DirectCost',
+    'FreightCost',
+    'OtherCost',
   ];
 
 
@@ -111,6 +118,13 @@ class Provider extends ProviderBase {
     'Weight',
     'Width',
     'Expired',
+    // Warehouse Resourse specific fields
+    'StockAccount',
+    'StockChangeAccount',
+    'CostCalculationMethod',
+    'DirectCost',
+    'FreightCost',
+    'OtherCost',
   ];
 
 

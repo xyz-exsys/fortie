@@ -83,7 +83,6 @@ class Provider extends ProviderBase {
     'InvoiceDate',
     'InvoicePeriodStart',
     'InvoicePeriodEnd',
-    'InvoiceRows',
     'InvoiceType',
     'Labels',
     'Language',
@@ -119,6 +118,10 @@ class Provider extends ProviderBase {
     'YourOrderNumber',
     'YourReference',
     'ZipCode',
+    // Warehouse Resourse specific fields
+    'WarehouseReady',
+    'OutboundDate',
+    'StockPointCode',
     // EDI
     'EDIGlobalLocationNumber',
     'EDIGlobalLocationNumberDelivery',
@@ -133,11 +136,13 @@ class Provider extends ProviderBase {
     'EmailSubject',
     'EmailBody',
     // Rows
+    'InvoiceRows',
     'AccountNumber',
     'ArticleNumber',
     'ContributionPercent',
     'ContributionValue',
     'CostCenter',
+    'ReservedQuantity',
     'DeliveredQuantity',
     'Description',
     'Discount',
@@ -184,7 +189,6 @@ class Provider extends ProviderBase {
     'ExternalInvoiceReference',
     'Freight',
     'InvoiceDate',
-    'InvoiceRows',
     'InvoiceType',
     'Labels',
     'Language',
@@ -205,6 +209,9 @@ class Provider extends ProviderBase {
     'YourOrderNumber',
     'YourReference',
     'ZipCode',
+    // Warehouse Resourse specific fields
+    'OutboundDate',
+    'StockPointCode',
     // EDI
     'EDIGlobalLocationNumber',
     'EDIGlobalLocationNumberDelivery',
@@ -219,6 +226,7 @@ class Provider extends ProviderBase {
     'EmailSubject',
     'EmailBody',
     // Rows
+    'InvoiceRows',
     'AccountNumber',
     'ArticleNumber',
     'CostCenter',
