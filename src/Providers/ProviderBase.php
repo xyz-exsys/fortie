@@ -230,7 +230,10 @@ abstract class ProviderBase
     // See: http://guzzle3.readthedocs.org/http-client/request.html#post-requests
     if ($sanitize) {
       foreach ($writeable as $key => $value) {
-        $value = str_replace('@', '', $value);
+        if(is_string($value))
+        {
+          $value = str_replace('@', '', $value);
+        }
       }
     }
 
