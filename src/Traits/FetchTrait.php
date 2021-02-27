@@ -101,7 +101,7 @@ trait FetchTrait
             if ($this->page($currentPage)->count() > 0) {
                 $items = array_merge(
                     $items,
-                    $this->page($currentPage)->all()->{$this->wrapperGroup}
+                    $this->page($currentPage)->all()->{$this->wrapperGroup} ?? []
                 );
             }
         }
