@@ -95,6 +95,30 @@ class Provider extends ProviderBase {
 
 
   /**
+   * Retrives a price for a specified sublist.
+   *
+   * @param $id
+   * @return array
+   */
+  public function sublist ($priceList = null, $articleNumber = null)
+  {
+    if (is_null($priceList) || is_null($articleNumber)) {
+      throw new MissingRequiredAttributeException(['priceList', 'articleNumber']);
+    }
+
+    $req = new FortieRequest();
+    $req->method('GET');
+    $req->path($this->basePath)->path('sublist')->path($priceList);
+    if($articleNumber)
+    {
+      $req->path($articleNumber);
+    }
+
+    return $this->send($req->build());
+  }
+
+
+  /**
    * Retrives a price for a specified article.
    *
    * @param $id
