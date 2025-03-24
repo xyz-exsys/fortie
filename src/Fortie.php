@@ -382,7 +382,7 @@ class Fortie
   public function __construct(
     $endpoint,
     $access_token,
-    $client_secret,
+    // $client_secret,
     $content_type,
     $accepts,
     $config = []
