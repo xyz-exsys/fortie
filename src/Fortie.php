@@ -391,8 +391,7 @@ class Fortie
     $client = new \GuzzleHttp\Client(array_merge([
       'base_uri'  => $endpoint,
       'headers'   => [
-        'Access-Token'  => $access_token,
-        'Client-Secret' => $client_secret,
+        'Authorization'  => 'Bearer '.$access_token,
         'Content-Type'  => $content_type,
         'Accept'        => $accepts
       ],
