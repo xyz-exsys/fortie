@@ -319,18 +319,25 @@ abstract class ProviderBase
       }
 
       // Because Fortnox API can use both non-capitalized and capitalized parameters.
-      if (property_exists($jsonError->ErrorInformation, 'error')) {
+      if (property_exists($jsonError, 'ErrorInformation') && property_exists($jsonError->ErrorInformation, 'error')) {
         throw new FortnoxException(
           $jsonError->ErrorInformation->error,
           $jsonError->ErrorInformation->message,
           $jsonError->ErrorInformation->code,
           $e
         );
-      } else {
+      } else if (property_exists($jsonError, 'ErrorInformation') && property_exists($jsonError->ErrorInformation, 'Error')) {
         throw new FortnoxException(
           $jsonError->ErrorInformation->Error,
           $jsonError->ErrorInformation->Message,
           $jsonError->ErrorInformation->Code,
+          $e
+        );
+      } else {
+        throw new FortnoxException(
+          'Error',
+          json_encode($jsonError),
+          $response->getStatusCode(),
           $e
         );
       }
