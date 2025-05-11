@@ -18,6 +18,7 @@
 
 */
 
+use Illuminate\Support\Facades\DB;
 use Wetcat\Fortie\Providers\AbsenceTransactions\Provider as AbsenceTransactionsProvider;
 use Wetcat\Fortie\Providers\AccountCharts\Provider as AccountChartsProvider;
 use Wetcat\Fortie\Providers\Accounts\Provider as AccountsProvider;
@@ -381,13 +382,14 @@ class Fortie
    */
   public function __construct(
     $endpoint,
-    $access_token,
+    // $access_token,
     // $client_secret,
     $content_type,
     $accepts,
     $config = []
   ) {
     // Set up Guzzle client
+    $access_token   = DB::connection('fnx')->table('fnx_properties')->select('value')->where('property', 'api_access_token')->value('value');
     $client = new \GuzzleHttp\Client(array_merge([
       'base_uri'  => $endpoint,
       'headers'   => [

@@ -19,7 +19,6 @@
 */
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\DB;
 
 use Config;
 
@@ -91,7 +90,6 @@ class FortieServiceProvider extends ServiceProvider
   {
     $this->app->singleton(Fortie::class, function ($app) 
     {
-      $access_token   = DB::connection('fnx')->table('fnx_properties')->select('value')->where('property', 'api_access_token')->value('value');
       // $client_secret  = Config::get('fortie.default.client_secret', Config::get('fortie::default.client_secret'));
       $content_type   = Config::get('fortie.default.content_type', Config::get('fortie::default.content_type'));
       $accepts        = Config::get('fortie.default.accepts', Config::get('fortie::default.accepts'));
@@ -99,7 +97,7 @@ class FortieServiceProvider extends ServiceProvider
 
       return new Fortie(
         $endpoint,
-        $access_token,
+        // $access_token,
         // $client_secret,
         $content_type,
         $accepts
